@@ -1,16 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/yudapc/go-rupiah"
+)
 
 func main() {
-	var a int32
+	var amount int
 
-	var b float32
+	fmt.Print("Masukan nilai : ")
+	fmt.Scanf("%d", &amount)
+	amountFloat := float64(amount)
+	formatRupiah := rupiah.FormatRupiah(amountFloat)
+	fmt.Println(formatRupiah)
 
-	fmt.Print("Masukan angka : ")
-	fmt.Scanf("%d", &a)
-	b = float32(a)
-
-	fmt.Printf("%.2f\n", b)
-
+	formatDollar := amountFloat / 14250
+	fmt.Printf("$ %.2f", formatDollar)
 }
